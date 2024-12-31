@@ -121,9 +121,29 @@ class _LoginPageState extends State<LoginPage> {
                           errorText: _emailError,
                           errorStyle: const TextStyle(height: 0),
                         ),
+                        //  onTap: () {
+                        //   setState(() {
+                        //     if(_passwordController.text == ""){
+                        //         _passwordError = 'Password is required';
+                        //     }
+                        //     else{
+                        //            _passwordError = null;
+                        //     }
+                            
+                        //   });
+                        // },
                         onChanged: (value) {
                           setState(() {
-                            _emailError = null;
+                            if (value.isEmpty) {
+                              _emailError = 'Email is required';
+                            } else {
+                              final RegExp emailRegex = RegExp(
+                                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                              );
+                              _emailError = emailRegex.hasMatch(value)
+                                  ? null // No error
+                                  : 'Enter a valid email address'; // Show error for invalid format
+                            }
                           });
                         },
                       ),
@@ -166,6 +186,17 @@ class _LoginPageState extends State<LoginPage> {
                           errorText: _passwordError,
                           errorStyle: const TextStyle(height: 0),
                         ),
+                        onTap: () {
+                          setState(() {
+                            if(_emailController.text == ""){
+                                _emailError = 'Email is required';
+                            }
+                            else{
+                                   _emailError = null;
+                            }
+                            
+                          });
+                        },
                         onChanged: (value) {
                           setState(() {
                             _passwordError = null;
@@ -182,7 +213,13 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: _validateAndLogin,
+                              onPressed: (){
+                                 Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => BottomNavigationPage()),
+        );
+        //_validateAndLogin();
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFFF72162),
                                 padding:

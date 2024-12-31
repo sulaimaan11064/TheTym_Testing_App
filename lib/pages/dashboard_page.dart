@@ -659,7 +659,7 @@ class _DashboardPageState extends State<DashboardPage> with TickerProviderStateM
                       TextButton(
                         onPressed: () => Navigator.pop(context),
                         child: const Text("Cancel",
-                            style: TextStyle(color: Colors.blue)),
+                            style: TextStyle(color: Colors.blue, fontSize: 16.0)),
                       ),
                     ],
                   ),
@@ -735,8 +735,9 @@ class _DashboardPageState extends State<DashboardPage> with TickerProviderStateM
                             selectedAssignees); // Pass selected assignees back
                         Navigator.pop(context); // Close the bottom sheet
                       },
-                      child: const Text("Done"),
+                      child: const Text("Done",style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 45.0),
                         backgroundColor: Colors.blue,
                       ),
                     ),
