@@ -57,8 +57,11 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Scaffold(  
+      body: SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Top pink section
           Container(
@@ -89,9 +92,10 @@ class _LoginPageState extends State<LoginPage> {
           ),
 
           // Bottom white section
-          Expanded(
-            child: Container(
-              child: Padding(
+          // Expanded(
+          //   child: Container(
+          //     child:
+               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Form(
                   key: _formKey,
@@ -203,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         },
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 20),
 
                       // Login button
                       // Between Login and Google Login buttons
@@ -223,7 +227,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFFF72162),
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 16.0),
+                                    const EdgeInsets.symmetric(vertical: 14.0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                 ),
@@ -285,8 +289,8 @@ class _LoginPageState extends State<LoginPage> {
                                 children: [
                                   Image.asset(
                                     'assets/images/google_img.png', // Add Google icon image to assets
-                                    height: 30,
-                                    width: 30,
+                                    height: 24,
+                                    width: 24,
                                   ),
                                   const SizedBox(width: 8),
                                   const Text(
@@ -303,7 +307,7 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
 
-                      const SizedBox(height: 16),
+                      //const SizedBox(height: 10),
 
                       // Sign Up Button
                       TextButton(
@@ -334,10 +338,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-            ),
-          ),
+            //),
+         // ),
         ],
       ),
-    );
+      )));
   }
 }

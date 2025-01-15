@@ -46,7 +46,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double bottomNavHeight = screenHeight * 0.09;
+    double bottomNavHeight = screenHeight * 0.10;
 
     return Scaffold(
       body: _pages[_currentIndex],  

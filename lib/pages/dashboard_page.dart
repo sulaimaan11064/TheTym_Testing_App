@@ -197,7 +197,7 @@ class _DashboardPageState extends State<DashboardPage> with TickerProviderStateM
               );
 
               _heightAnimation = Tween<double>(
-                begin: MediaQuery.of(context).size.height * 0.4,
+                begin: MediaQuery.of(context).size.height * 0.5,
                 end: MediaQuery.of(context).size.height * 0.9,
               ).animate(CurvedAnimation(
                 parent: _controller!,
